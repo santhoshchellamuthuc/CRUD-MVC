@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34031.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD-MVC", "CRUD-MVC\CRUD-MVC.csproj", "{ECBCD187-3293-4875-A7E9-521F4759082C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD-MVC", "CRUD-MVC\CRUD-MVC.csproj", "{ECBCD187-3293-4875-A7E9-521F4759082C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SanthoshLibrary", "SanthoshLibrary\SanthoshLibrary.csproj", "{C79DD77C-2ABA-4731-A254-0FA16494C5FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ECBCD187-3293-4875-A7E9-521F4759082C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECBCD187-3293-4875-A7E9-521F4759082C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECBCD187-3293-4875-A7E9-521F4759082C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C79DD77C-2ABA-4731-A254-0FA16494C5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79DD77C-2ABA-4731-A254-0FA16494C5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79DD77C-2ABA-4731-A254-0FA16494C5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79DD77C-2ABA-4731-A254-0FA16494C5FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
