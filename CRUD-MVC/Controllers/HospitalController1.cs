@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using SanthoshLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +9,18 @@ using System.Threading.Tasks;
 
 namespace CRUD_MVC.Controllers
 {
-    public class HospitalController1 : Controller
+    public class HospitalController : Controller
     {
-        // GET: HospitalController1
-        public ActionResult Index()
+        HospitalRepostery refer;
+        public HospitalController(IConfiguration connection)
         {
-            return View();
+            refer = new HospitalRepostery(connection);
+        }
+        // GET: HospitalController1
+        public IActionResult Showall()
+        {
+            var Model = refer.Showall();
+            return View("Showing",Model);
         }
 
         // GET: HospitalController1/Details/5
