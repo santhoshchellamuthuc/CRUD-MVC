@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SanthoshLibrary.HospitalEntity>
 
 @{
-    ViewData["Title"] = "HospitalList";
+    ViewData["Title"] = "Hospitalshow";
 }
 
-<h1>HospitalList</h1>
+<h1>Hospitalshow</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.Pincode)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {  Id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new {  Id=item.Id  }) |
+                @Html.ActionLink("Delete", "Delete", new { Id=item.Id })
             </td>
         </tr>
 }

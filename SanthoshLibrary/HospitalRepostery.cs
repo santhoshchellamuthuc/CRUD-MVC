@@ -21,11 +21,84 @@ namespace SanthoshLibrary
         {
             try
             {
-                var value = $" exec HospitalShowall";
+                var value =( $" exec HospitalShowall");
                 refer.Open();
                 var result = refer.Query<HospitalEntity>(value);
                 refer.Close();
                 return (result);
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public void Login(HospitalEntity reg)
+        {
+            try
+            {
+                var Sqlvalue = ($"EXEC HospitalLogin'{reg.Name}','{reg.Email}','{reg.Address}',{reg.Phonenumber},{reg.Pincode}");
+                refer.Open();
+                refer.Execute(Sqlvalue);
+                refer.Close();
+            }
+            catch (SqlException )
+            {
+                throw ;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public IEnumerable<HospitalEntity>Search(int  Id)
+        {
+            try
+            {
+                var value = ($"Exec HospitalSearch {Id}");
+                refer.Open();
+                var result = refer.Query<HospitalEntity>(value);
+                refer.Close();
+                return(result);
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public void Edit(int Id,long Phonenumber,string Adress)
+        {
+            try
+            {
+                var value = ($"Exec HospitalEdit {Id},{Phonenumber},'{Adress}'");
+                refer.Open();
+                refer.Execute(value);
+                refer.Close();
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public void Delete(long Id)
+        {
+            try
+            {
+                var value = ($"exec HospitalDelete {Id}");
+                refer.Open();
+                refer.Execute(value);
+                refer.Close();
             }
             catch (SqlException)
             {

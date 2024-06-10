@@ -6,15 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="SQLquery\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SanthoshLibrary\SanthoshLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="sql model\" />
   </ItemGroup>
 
 </Project>
