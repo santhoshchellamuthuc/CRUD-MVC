@@ -80,24 +80,26 @@ namespace CRUD_MVC.Controllers
         }
 
         // GET: HospitalController/Delete/5
-        public ActionResult Delete(long Id)
+        public ActionResult Delete(int Id)
         {
-            var data = refer.Delete(Id);
-            return View();
+            var value = refer.Search(Id).FirstOrDefault();
+            return View("Hospitaldelete",value);
         }
 
         // POST: HospitalController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(HospitalEntity obj)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var Id = obj.Id;
+                refer.Delete(Id);
+                return RedirectToAction(nameof(Showall));
             }
             catch
             {
-                return View();
+                return View("Invalid Opration");
             }
         }
     }
