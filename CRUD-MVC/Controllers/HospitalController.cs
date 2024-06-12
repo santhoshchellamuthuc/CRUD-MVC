@@ -12,9 +12,11 @@ namespace CRUD_MVC.Controllers
     public class HospitalController : Controller
     {
         HospitalRepostery refer;
-        public HospitalController(IConfiguration  Connection)
+        ILocationRepository Locationcon;
+        public HospitalController(IConfiguration  Connection , ILocationRepository  Location)
         {
             refer = new HospitalRepostery(Connection);
+            Locationcon = Location;
         }
         // GET: HospitalController
         public ActionResult Showall()
@@ -33,7 +35,11 @@ namespace CRUD_MVC.Controllers
         // GET: HospitalController/Create
         public ActionResult Create()
         {
-            return View("Hospitalcreate",new HospitalEntity());
+            var location = Locationcon.Showall();
+            var newmodel = new HospitalEntity();
+            newmodel.Location = location;
+
+            return View("Hospitalcreate", newmodel);
         }
 
         // POST: HospitalController/Create
@@ -42,13 +48,29 @@ namespace CRUD_MVC.Controllers
         public ActionResult Create(HospitalEntity reg)
         {
             try
-            {
-                refer.Login(reg);
-                return RedirectToAction(nameof(Showall));
+            { 
+                var location = Locationcon.Showall();
+                var newmodel = new HospitalEntity();
+                newmodel.Location = location;
+                if (ModelState.IsValid)
+                {
+                    if (false)
+                    {
+                        ModelState.AddModelError("", "Email Already Exists");
+                        return View("Hospitalcreate", newmodel);
+                    }
+                    refer.Login(reg);
+                    return RedirectToAction(nameof(Showall));
+                }
+                else
+                {
+                    return View ("Hospitalcreate", newmodel);
+                }
+                
             }
             catch
             {
-                return View();
+                throw;
             }
         }
 

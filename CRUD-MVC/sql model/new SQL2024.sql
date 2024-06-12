@@ -61,26 +61,23 @@ select *from [HospitalDetails]
  where
   Name like'%'+@Name+'%'
   end
-  exec HospitalSearch 'ABC'
+  --exec HospitalSearch 'ABC'
   Create or alter procedure HospitalShowall
   As
   Begin select *from HospitalDetails end 
 
--- Id like '%'+@Name+'%' or
--- Email like'%'+@Name+'%'or
--- Address like '%'+@Name+'%' or
- --Phonenumber like'%'+@Name+'%' or
- --Pincode like'%'+@Name+'%'
- 
+---------LOCATIONPOINT--------
+Create table Locationdetils
+(LocationId Bigint Identity(1,1),
+Locationname nvarchar(100) not null)
+ select *from Locationdetils
 
- -- exec HospitalSearch 909099090
- --  create or alter procedure HospitalSelect
- --(@Id Bigint,
- --@Name nvarchar(100),
- --@Email nvarchar(100),
- --@Address nvarchar(100),
- --@Phonenumber bigint,
- --@Pincode bigint)
-   
- --As
- --Begin select *from HospitalDetails where Name=@Name,Email=@Email,Address=@Address,
+INSERT INTO LOCATIONDETILS(LOCATIONNAME)
+VALUES('
+Dubai')
+
+create or alter procedure Locationpoint
+As
+Begin
+select * from Locationdetils end
+exec Locationpoint 

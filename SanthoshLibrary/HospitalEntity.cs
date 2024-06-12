@@ -20,9 +20,11 @@ namespace SanthoshLibrary
         public string Address { get; set; }
         [Required]
         [Display(Name= "Contact Number")]
-       /* [Range(1,999999999)]*/
         public long Phonenumber { get; set; }
         public long Pincode { get; set; }
+        public int LocationId { get; set; }
+        public IEnumerable<LocationEntity> Location { get; set; }
+
 
     }
 }
