@@ -37,5 +37,18 @@ namespace SanthoshLibrary
                 throw;
             }
         }
+        public void Insert()
+        {
+            try
+            {
+
+            }catch(SqlException)
+            {
+                throw;
+            }catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }

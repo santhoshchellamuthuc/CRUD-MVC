@@ -77,7 +77,7 @@ namespace SanthoshLibrary
         {
             try
             {
-                var value = ($"Exec HospitalEdit {Id},{Phonenumber},'{Adress}'");
+                var value = ($"Exec HospitalEdit {Id},'{Adress}',{Phonenumber}");
                 refer.Open();
                 refer.Execute(value);
                 refer.Close();

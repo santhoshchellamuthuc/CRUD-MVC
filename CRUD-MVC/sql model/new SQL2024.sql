@@ -32,14 +32,15 @@ select *from [HospitalDetails]
 
  create or alter procedure HospitalEdit
 (
- @Name nvarchar(100),
+ @Id Bigint ,
  @Address nvarchar(100),
  @Phonenumber bigint) 
  As
  Begin
  update HospitalDetails set Address=@Address,Phonenumber=@Phonenumber
- where Name=@Name
+ where Id=@Id
  end
+ exec HospitalEdit 1,'santhosh',5656565656
 -- exec  HospitalEdit 'santhosh','sancon@gmail.com',34573698698
 
 -- exec HospitalEdit 2, 'santoshkumar','madesh123@gmail.com','2/23,porulur,dindugul',9090909090,624616
@@ -55,19 +56,19 @@ select *from [HospitalDetails]
  select *from HospitalDetails
 
  create or alter procedure HospitalSearch
- (@Name nvarchar (100))
+ (@Id Bigint)
  As
  Begin select * from HospitalDetails 
- where
-  Name like'%'+@Name+'%'
-  end
-  --exec HospitalSearch 'ABC'
+ where Id=@Id  end
+  
+ --exec HospitalSearch 1
+  ----exec HospitalSearch 'ABC'
   Create or alter procedure HospitalShowall
   As
   Begin select *from HospitalDetails end 
 
 ---------LOCATIONPOINT--------
-Create table Locationdetils
+Create  table Locationdetils
 (LocationId Bigint Identity(1,1),
 Locationname nvarchar(100) not null)
  select *from Locationdetils
