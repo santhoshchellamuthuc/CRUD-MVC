@@ -9,5 +9,6 @@ namespace SanthoshLibrary
     public interface ILocationRepository
     {
         public IEnumerable<LocationEntity> Showall();
+        public void Insert(); 
     }
 }

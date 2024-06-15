@@ -73,11 +73,11 @@ namespace SanthoshLibrary
                 throw;
             }
         }
-        public void Edit(int Id,long Phonenumber,string Adress)
+        public void Edit( HospitalEntity reg)
         {
             try
             {
-                var value = ($"Exec HospitalEdit {Id},'{Adress}',{Phonenumber}");
+                var value = ($"Exec HospitalEdit {reg.Id},'{reg.Name}','{reg.Email}','{reg.Address}',{reg.Phonenumber},{reg.Pincode}");
                 refer.Open();
                 refer.Execute(value);
                 refer.Close();

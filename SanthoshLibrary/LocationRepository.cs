@@ -37,12 +37,17 @@ namespace SanthoshLibrary
                 throw;
             }
         }
-        public void Insert()
+        public void Insert(LocationEntity reg)
         {
             try
             {
+                var inert = $"exec Locationinsert '{reg.Locationname}'";
+                refer.Open();
+                refer.Execute(inert);
+                refer.Close();
 
-            }catch(SqlException)
+            }
+            catch(SqlException)
             {
                 throw;
             }catch(Exception)

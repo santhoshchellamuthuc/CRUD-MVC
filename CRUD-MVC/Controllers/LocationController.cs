@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using SanthoshLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,16 @@ namespace CRUD_MVC.Controllers
 {
     public class LocationController : Controller
     {
-        // GET: LocationController
-        public ActionResult Index()
+        ILocationRepository refer;
+        public LocationController(ILocationRepository inter)
         {
-            return View();
+            refer = inter;
+        }
+        // GET: LocationController
+        public ActionResult Showall()
+        {
+            var model = refer.Showall();
+            return View("Show",model);
         }
 
         // GET: LocationController/Details/5
@@ -24,17 +32,18 @@ namespace CRUD_MVC.Controllers
         // GET: LocationController/Create
         public ActionResult Create()
         {
-            return View();
+            return View("CREATE", new LocationEntity());
         }
 
         // POST: LocationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(LocationEntity reg)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                refer.Insert(reg.Locationname);
+                return RedirectToAction(nameof(Showall));
             }
             catch
             {

@@ -89,10 +89,10 @@ namespace CRUD_MVC.Controllers
             try
             {
                
-                var Number = reg.Phonenumber;
+               /* var Number = reg.Phonenumber;
                 var Id = reg.Id;
-                var Adress = reg.Address;
-                refer.Edit( Id, Number,Adress);
+                var Adress = reg.Address;*/
+                refer.Edit(reg);
                 return RedirectToAction(nameof(Showall));
             }
             catch
