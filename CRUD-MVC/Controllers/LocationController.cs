@@ -42,12 +42,12 @@ namespace CRUD_MVC.Controllers
         {
             try
             {
-                refer.Insert(reg.Locationname);
+                refer.Insert(reg);
                 return RedirectToAction(nameof(Showall));
             }
             catch
             {
-                return View();
+                return View("Invaild Option");
             }
         }
 

@@ -33,7 +33,7 @@ namespace SanthoshLibrary
             }
             catch (Exception)
             {
-                throw;
+                throw;      
             }
         }
         public void Login(HospitalEntity reg)
