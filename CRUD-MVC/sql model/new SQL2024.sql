@@ -35,7 +35,7 @@ select *from [HospitalDetails]
  @Id Bigint ,
  @Name nvarchar (100),
  @Email nvarchar(100),
- @Address nvarchar(100),
+ @Address nvarchar(100),	
  @Phonenumber bigint,
  @Pincode Bigint) 
  As
@@ -46,7 +46,7 @@ select *from [HospitalDetails]
 -- exec HospitalEdit 1,'santhosh',5656565656
 -- exec  HospitalEdit 'santhosh','sancon@gmail.com',34573698698
 
-exec HospitalEdit 1, 'santoshkumar','madesh123@gmail.com','2/23,porulur,dindugul',9090909090,624616
+--exec HospitalEdit 1, 'santoshkumar','madesh123@gmail.com','2/23,porulur,dindugul',9090909090,624616
  select *from HospitalDetails
 
  create or alter procedure HospitalDelete
